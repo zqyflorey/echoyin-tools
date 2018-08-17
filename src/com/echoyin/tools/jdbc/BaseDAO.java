@@ -25,9 +25,6 @@ public class BaseDAO<T> {
 
 	@SuppressWarnings("unchecked")
 	public BaseDAO() {
-		// <重要> 调用new
-		// UserDAOImpl()后，this.getClass()为test.UserDAOImpl，再调用getGenericSuperclass()后得到的是test.BaseDAO<test.User>
-		// </重要>
 		ParameterizedType type = (ParameterizedType) this.getClass()
 				.getGenericSuperclass();
 		Type[] actualTypeArguments = type.getActualTypeArguments();
@@ -174,7 +171,6 @@ public class BaseDAO<T> {
 	}
 
 	/**
-	 * 涓�釜Field瀵瑰簲鐨勫�銆傛瘮濡俇ser#uid鐨勫�銆�
 	 * 
 	 * @param field
 	 * @param bean
